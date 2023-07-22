@@ -349,17 +349,11 @@ md"## Singular - Inverse Doesn't exist"
 # ╔═╡ 7f87d6ed-ebda-4243-84d1-15e3213e0cbd
 inverse([1 2; 1 2]) # Singular
 
-# ╔═╡ 286147b9-5e43-4b1b-9b70-04a523116e47
-function identity(n::Integer)
-    return Matrix(I, n, n)
-end
-
-
 # ╔═╡ d7f004f0-ae44-4eb7-88e7-a746a1f60e00
 function inv_ident(M::AbstractMatrix)
 	# DOESNT WORK!!!
     rows = Integer(size(M)[1])
-    return LA.aug_solve([M identity(rows)])
+    return LA.aug_solve([M LA.identity(rows)])
 end
 
 
@@ -370,7 +364,7 @@ begin
 end
 
 # ╔═╡ 95aa087c-9e22-4262-b555-2f2d6f4a2dd6
-identity(4)
+LA.identity(4)
 
 # ╔═╡ e185d0a5-b7b2-4592-b77d-1dabf763f2cf
 
@@ -1514,7 +1508,6 @@ version = "1.4.1+0"
 # ╟─7f6ef043-9c5b-43e2-b730-9adab4aa6424
 # ╠═7f87d6ed-ebda-4243-84d1-15e3213e0cbd
 # ╠═d7f004f0-ae44-4eb7-88e7-a746a1f60e00
-# ╠═286147b9-5e43-4b1b-9b70-04a523116e47
 # ╠═34829a67-6295-4ea4-9a11-943f2c50ecf5
 # ╠═95aa087c-9e22-4262-b555-2f2d6f4a2dd6
 # ╠═e185d0a5-b7b2-4592-b77d-1dabf763f2cf
